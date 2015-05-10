@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141108000020) do
+ActiveRecord::Schema.define(:version => 20141116000024) do
 
   create_table "customer_services", :force => true do |t|
     t.string   "year_customer_service"
@@ -40,9 +40,26 @@ ActiveRecord::Schema.define(:version => 20141108000020) do
     t.string   "description_rating"
     t.float    "value_rating"
     t.integer  "unity_procon_id"
+    t.integer  "user_id"
   end
 
   add_index "ratings", ["unity_procon_id"], :name => "index_ratings_on_unity_procon_id"
+  add_index "ratings", ["user_id"], :name => "index_ratings_on_user_id"
+
+  create_table "regions", :force => true do |t|
+    t.string   "description_region"
+    t.integer  "quantity_region"
+    t.integer  "quantity_direct_complaint"
+    t.integer  "quantity_preliminary_service"
+    t.integer  "quantity_calculation"
+    t.integer  "quantity_cip"
+    t.integer  "quantity_forward_supervision"
+    t.integer  "quantity_initial_jec"
+    t.integer  "quantity_letter_complaint"
+    t.integer  "quantity_simple_consult"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
 
   create_table "suppliers", :force => true do |t|
     t.string   "type_supplier"
@@ -54,8 +71,6 @@ ActiveRecord::Schema.define(:version => 20141108000020) do
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
   end
-
-  add_index "suppliers", ["fantasy_name_supplier"], :name => "fantasy_name_supplier", :unique => true
 
   create_table "uf_helpers", :force => true do |t|
     t.string   "description_uf"
@@ -81,6 +96,9 @@ ActiveRecord::Schema.define(:version => 20141108000020) do
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
     t.integer  "position_unity_procon"
+    t.float    "average_pontuation"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "users", :force => true do |t|
