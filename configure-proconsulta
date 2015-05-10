@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cp proconsulta $HOME/bin/
