@@ -6,9 +6,10 @@ gem 'ransack'
 gem 'gmaps4rails'
 gem 'geocoder'
 
+gem 'pg'
+
 gem 'simplecov', :require => false, :group => :test
 
-gem 'mysql2'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 
@@ -34,7 +35,7 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  
+
   gem 'coffee-rails', '~> 3.2.1'
   gem "therubyracer"
   gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
@@ -59,7 +60,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
 
 # To use debugger
 # gem 'debugger'
