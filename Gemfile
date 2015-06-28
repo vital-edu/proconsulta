@@ -7,6 +7,7 @@ gem 'gmaps4rails'
 gem 'geocoder'
 
 gem 'pg'
+gem 'mysql2', '0.3.16'
 
 gem 'simplecov', :require => false, :group => :test
 

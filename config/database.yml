@@ -1,10 +1,9 @@
 connection: &connection
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql2
   pool: 5
-  username:
-  password:
-  socket:
+  username: root
+  password: password
+  host: localhost
 
 development:
   <<: *connection

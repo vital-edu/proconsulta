@@ -1,4 +1,19 @@
 before_script:
+  - echo deb deb mirrors.kernel.org/ubuntu trusty main  > /etc/apt/sources.list
+  # - wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc |
+  # - apt-key add -
+  # - apt-get update
+  # - DEBIAN_FRONTEND=noninteractive apt-get install -y postgresql-9.3 postgresql-client-9.3 postgresql-contrib-9.3
+  # - pg_createcluster 9.3 main
+  # - service postgresql start
+  # - apt-get install sudo
+  # - sudo -u postgres psql
+  # - alter user postgres with encrypted password 'postgres';
+  - apt-get install software-properties-common python-software-properties
+  - apt-key add --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a1bb943db
+  - add-apt-repository 'deb http://mirror.edatel.net.co/mariadb//repo/10.0/ubuntu trusty main'
+  - apt-get update
+  - apt-get install mariadb-server
   - gem install bundler
   - bundle install
   - bundle exec rake db:create
@@ -10,22 +25,3 @@ rspec:
     - postgresql
   only:
     - branches
-
-staging:
-  deploy: "cap deploy stating"
-  tags:
-    - capistrano
-    - debian
-  except:
-    - stable
-
-production:
-  deploy:
-    - cap deploy production
-    - cap notify
-  tags:
-    - capistrano
-    - debian
-  only:
-    - master
-    - /^deploy-.*$/
