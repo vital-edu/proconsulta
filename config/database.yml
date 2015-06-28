@@ -2,8 +2,9 @@ connection: &connection
   adapter: postgresql
   encoding: unicode
   pool: 5
-  username: dguedes
-  password: proconsulta
+  username:
+  password:
+  socket:
 
 development:
   <<: *connection
