@@ -1,7 +1,13 @@
+# Run before each script
 before_script:
+  - export PATH=$HOME/bin:/usr/local/bin:/usr/bin:/bin
   - gem install bundler
-  - bundle install
-  - bundle exec rake db:create
+  - cp config/database.yml.mysql config/database.yml
+  - cp config/gitlab.yml.example config/gitlab.yml
+  - touch log/application.log
+  - touch log/test.log
+  - bundle install --without postgres production --jobs $(nproc)
+  - “bundle exec rake db:create RAILS_ENV=test”
 
 rspec:
   script: "rake spec"
@@ -19,23 +25,3 @@ spinach:
   except:
     - tags
 
-staging:
-  script: "cap deploy staging"
-  type: deploy
-  tags:
-    - capistrano
-    - debian
-  except:
-    - stable
-
-production:
-  script:
-    - cap deploy production
-    - cap notify
-  type: deploy
-  tags:
-    - capistrano
-    - debian
-  only:
-    - master
-    - /^deploy-.*$/
