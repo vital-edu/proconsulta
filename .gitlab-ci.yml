@@ -1,0 +1,11 @@
+# Run before each script
+before_script:
+  - source /usr/local/rvm/scripts/rvm
+
+rspec:
+  script: "rake spec"
+  tags:
+    - ruby
+    - postgres
+  only:
+    - branches
