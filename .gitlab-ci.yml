@@ -1,0 +1,41 @@
+before_script:
+  - gem install bundler
+  - bundle install
+  - bundle exec rake db:create
+
+rspec:
+  script: "rake spec"
+  tags:
+    - ruby
+    - postgres
+  only:
+    - branches
+
+spinach:
+  script: "rake spinach"
+  tags:
+    - ruby
+    - mysql
+  except:
+    - tags
+
+staging:
+  script: "cap deploy staging"
+  type: deploy
+  tags:
+    - capistrano
+    - debian
+  except:
+    - stable
+
+production:
+  script:
+    - cap deploy production
+    - cap notify
+  type: deploy
+  tags:
+    - capistrano
+    - debian
+  only:
+    - master
+    - /^deploy-.*$/
