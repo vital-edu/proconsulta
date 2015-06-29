@@ -9,15 +9,15 @@ SISANPRO::Application.routes.draw do
   resources :ratings, only: [:show, :index]
   resources :cdcs
 
-  match '/add_rating', to: 'unity_procons#update'
-  match '/signup', to: 'users#new'
-  match '/signin', to: 'sessions#new'
-  match '/signout', to: 'sessions#destroy', via: :delete
-  match '/allusers', to: 'users#allusers'
-  match '/ranking', to: 'unity_procons#ranking'
-  match '/faq', to: 'faqs#index'
-  match '/cdc', to: 'cdcs#index'
-  match '/avaliar', to: 'ratings#index'
+  get '/add_rating' => 'unity_procons#update'
+  get '/signup' => 'users#new'
+  get '/signin' => 'sessions#new'
+  get '/signout' => 'sessions#destroy', via: :delete
+  get '/allusers' => 'users#allusers'
+  get '/ranking' => 'unity_procons#ranking'
+  get '/faq' => 'faqs#index'
+  get '/cdc' => 'cdcs#index'
+  get '/avaliar' => 'ratings#index'
 
   get "/graphs", to: 'customer_services#graphs'
 

@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	attr_accessible :email_user, :name_user, :password, :password_confirmation, :address_user
+	# attr_accessible :email_user, :name_user, :password, :password_confirmation, :address_user
 	has_secure_password
 	after_validation { self.errors.messages.delete(:password_digest) }
 	before_save { |user| user.email_user = email_user.downcase }
