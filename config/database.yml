@@ -2,8 +2,8 @@ connection: &connection
   adapter: postgresql
   encoding: unicode
   pool: 5
-  username: jenkins
-  password:
+  username: <% ENV["DB_USER"] %>
+  password: <% ENV["DB_PASSWORD"] %>
 
 development:
   <<: *connection
