@@ -171,13 +171,13 @@ Quando(/^preencho informacao invalida$/) do
 end
 
 Dado(/^possuo uma conta$/) do
-  @user = User.new(name_user: "User", email_user: "user@gmail.com",
+  @user = User.new(name: "User", email: "user@gmail.com",
                       password: "135790", password_confirmation: "135790",
-		      address_user: "DF")
+		      address: "DF")
 end
 
 Quando(/^submeto informacoes validas$/) do
-  fill_in "E-mail", with: @user.email_user
+  fill_in "E-mail", with: @user.email
   fill_in "Senha", with: @user.password
   click_button "Logar"
 end

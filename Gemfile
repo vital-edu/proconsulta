@@ -9,6 +9,8 @@ gem 'geocoder'
 gem 'pg'
 
 gem 'simplecov', :require => false, :group => :test
+gem 'bootstrap-sass'
+gem 'turbolinks'
 
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
@@ -18,7 +20,6 @@ gem 'bootstrap-will_paginate'
 
 gem 'sqlite3'
 gem 'rspec-its'
-gem 'strong_parameters'
 
 group :development, :test do
   gem 'rspec-rails'

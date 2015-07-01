@@ -1,18 +1,13 @@
 class CreateUsers < ActiveRecord::Migration
-	def up
-		create_table :users do |actual_user|
-			actual_user.string :name_user
-			actual_user.string :adress_user
-			actual_user.string :email_user
-			actual_user.string :password_user
-			actual_user.references :rating
-            actual_user.references :session
+  def change
+    create_table :users do |t|
+      t.string :name
+      t.string :address
+      t.string :email
+      t.string :login
+      t.string :nickname
+      t.boolean :admin, :default => false
 
-            actual_user.timestamps
-        end
     end
-
-    def down
-    	drop_table :users
-    end
+  end
 end

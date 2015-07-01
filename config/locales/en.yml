@@ -8,16 +8,16 @@ en:
   activerecord:
     attributes:
       user:
-        email_user: "E-mail"
+        email: "E-mail"
         password: "Senha"
         password_confirmation: "Confirmação de senha"
-        name_user: "Nome"
-        password_digest: 
+        name: "Nome"
+        password_digest:
     errors:
       models:
         user:
           attributes:
-            email_user:
+            email:
               taken: "está em uso."
               blank: "não preenchido."
               invalid: "inválido."
@@ -28,7 +28,7 @@ en:
               invalid: "inválida."
               too_short: "muito curta."
               confirmation: "não confirmada."
-            name_user:
+            name:
               blank: "em branco."
             password_digest:
               blank: ""

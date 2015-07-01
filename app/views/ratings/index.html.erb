@@ -1,6 +1,6 @@
 <% provide(:title, "Avaliação") %>
 <title><%= yield(:title) %></title>
-<% unity_procons = UnityProcon.where(:uf_procon => current_user.address_user) %>
+<% unity_procons = UnityProcon.where(:uf_procon => current_user.address) %>
 <div class="container-fluid">
 	<div class="row-fluid">
 		<div class="span3">
@@ -10,11 +10,11 @@
 					<font face="verdana" color="gray">
 						Região:
 					</font>
-					<%= current_user.address_user%>
+					<%= current_user.address%>
 				</h2>
 			</center>
 			<left>
-			</div>	
+			</div>
 			<center>
 				<h1>Avaliar Unidade do Procon</h1>
 				<div class="span9">
@@ -22,7 +22,7 @@
 						<thead>
 							<tr>
 							    <th>ID</th>
-							    <th>Endereço</th> 
+							    <th>Endereço</th>
 							    <th colspan = "3"></th>
 						  	</tr>
 						</thead>

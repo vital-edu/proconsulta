@@ -32,17 +32,17 @@ describe SessionsHelper do
 
 	it "expect current_uf to be uf from current_user" do
 		sign_in(@user)
-		expect(current_uf).to be(@user.address_user)
+		expect(current_uf).to be(@user.address)
 	end
 
 	it "expect current_uf to match method current_uf=" do
-		current_uf=(@user.address_user)
-		expect(current_uf).to equal(@user.address_user)
+		current_uf=(@user.address)
+		expect(current_uf).to equal(@user.address)
 	end
 
 	it "expect current_uf= to match current_uf" do
 		sign_in(@user)
-		expect(current_uf).to eq(current_user.address_user)
+		expect(current_uf).to eq(current_user.address)
 		current_uf=("DF")
 		expect(current_uf).to eq("DF")
 	end

@@ -11,6 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require turbolinks
 //= require jquery_ujs
 //= require highcharts
 //= require highcharts/highcharts-3d
@@ -30,5 +31,3 @@
 //= require underscore
 //= require gmaps/google
 //= require_tree .
-//= require bootstrap
-//= require bootstrap.min

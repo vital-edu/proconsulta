@@ -2,6 +2,8 @@ require 'rails_helper'
 require 'spec_helper'
 require 'capybara/rspec'
 
+include SessionsHelper
+
 describe UsersController, :type => :controller do
 	before do
 		@user = FactoryGirl.create(:user)
@@ -9,7 +11,7 @@ describe UsersController, :type => :controller do
 	end
 
   	let(:valid_session) { {} }
-  	let(:valid_attributes) { FactoryGirl.attributes_for :user, email_user: 'newuser@example.com' }
+  	let(:valid_attributes) { FactoryGirl.attributes_for :user, email: 'newuser@example.com' }
   	#GET#allusers
 	describe "GET all users" do
 		it "should get all users" do
@@ -28,7 +30,7 @@ describe UsersController, :type => :controller do
 	describe "GET show" do
 	    it "should find the account by its id" do
 	      get :show, :id => @user.id
-	      assigns[:user].name_user.should == "User Test"
+	      assigns[:user].name.should == "User Test"
 	    end
 	end
 	#GET#new

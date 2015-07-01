@@ -6,9 +6,9 @@
 		<img src="/assets/LogoComSombra.png">
 		<br>
 		<img src="/assets/NomeLogo.png">
-		<h1>	
+		<h1>
 		<% if signed_in? %>
-			<h1>Seja bem-vindo,  <%= current_user.name_user %>.</h1>
+			<h1>Seja bem-vindo,  <%= current_user.name %>.</h1>
 		<% else %>
 			Novo? <%= link_to "Registre-se!", signup_path %></br>
 			<%= link_to "Logar", signin_path %></br>
