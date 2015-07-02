@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
-# Application name 
+# Application name
 set :application, 'proconsulta'
 
 # Repository URL
@@ -41,14 +41,9 @@ set :user, "root"
 # set :keep_releases, 5
 
 namespace :deploy do
+  after :deploy, 'deploy:database'
 
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
-    end
+  task :database, :roles => :app do
+      run "cp #{deploy_to}/shared/database.yml #{current_path}/config/"
   end
-
 end
