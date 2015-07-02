@@ -4,6 +4,7 @@ connection: &connection
   pool: 5
   username: <%= ENV["DB_USER"] %>
   password: <%= ENV["DB_PASSWORD"] %>
+  host:  localhost
 
 development:
   <<: *connection
